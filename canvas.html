@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+ 
+    <title>Belajar Ngaji - Level 1</title>
+
+    <!-- box-icon -->
+    <script src="https://unpkg.com/boxicons@latest/dist/boxicons.js"></script>
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+
+    <!-- CSS  -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
+    <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  </head>
+
+  <body>
+    <div id="index-banner" class="parallax-container">
+      <div class="section no-pad-bot">
+        <div class="container">
+          <br><br>
+          <!-- Button Kembali -->
+          <div class="row">
+            <div class="col s12 center">
+              <a href="index.html" class="btn waves-effect waves-light">
+                <i class="material-icons left">arrow_back</i>
+                Kembali
+              </a>
+            </div>
+          </div>
+          <h1 class="header center">Menulis Huruf Hijaiyah - Level 1</h1>
+          <div class="row center">
+            <h5 class="header col s12 light z-depth-5">Ayo mulai menulis huruf hijaiyah</h5>
+          </div>
+          <div class="center">
+            <p>Gunakan kursor atau sentuh untuk menulis</p>
+          </div>
+          <br><br>
+        </div>
+      </div>
+      <div class="parallax"><img src="./img/muslims-reading-from-quran.jpg" alt="Unsplashed background img 1"></div>
+    </div>
+
+    <div class="container">
+      <div class="section">
+        <!-- Bagian Menulis Huruf Hijaiyah -->
+        <div class="row">
+          <div class="col s12 center">
+            <h1 class="huruf">ا<br><label>Alif</label></h1>
+            <h5 class="header">Coba Tulis Huruf Alif</h5>
+            <canvas id="canvas" class="z-depth-2" width="300" height="300" style="border:1px solid #000;"></canvas>
+            <br><br>
+            <button class="btn waves-effect waves-light" onclick="clearCanvas()">Bersihkan</button>
+          </div>
+        </div>
+
+        <!-- Tombol untuk Melanjutkan ke Level Berikutnya -->
+        <div class="row center">
+          <a href="level2.html" class="btn waves-effect waves-light">Lanjutkan ke Level 2</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="./js/jquery-3.4.1.min.js"></script>
+    <script src="js/materialize.js"></script>
+    <script src="js/init.js"></script>
+
+    <!-- Script Menulis Huruf -->
+    <script>
+      let canvas = document.getElementById('canvas');
+      let ctx = canvas.getContext('2d');
+      let drawing = false;
+
+      canvas.addEventListener('mousedown', function(e) {
+        drawing = true;
+        ctx.moveTo(e.offsetX, e.offsetY);
+      });
+
+      canvas.addEventListener('mousemove', function(e) {
+        if (drawing) {
+          ctx.lineTo(e.offsetX, e.offsetY);
+          ctx.stroke();
+        }
+      });
+
+      canvas.addEventListener('mouseup', function() {
+        drawing = false;
+      });
+
+      canvas.addEventListener('mouseout', function() {
+        drawing = false;
+      });
+
+      function clearCanvas() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+      }
+    </script>
+  </body>
+</html>
